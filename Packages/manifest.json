@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.meta.xr.sdk.all": "62.0.0",
     "com.ucl.ubiq": "https://github.com/UCL-VR/ubiq.git#upm",
     "com.unity.collab-proxy": "2.2.0",
     "com.unity.feature.development": "1.0.1",
@@ -10,6 +11,7 @@
     "com.unity.webrtc-no-vulkan-hook": "https://github.com/UCL-VR/unity-webrtc-no-vulkan-hook.git",
     "com.unity.xr.interaction.toolkit": "2.5.3",
     "com.unity.xr.management": "4.4.1",
+    "com.unity.xr.oculus": "4.2.0",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
