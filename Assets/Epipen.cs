@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Ubiq.Messaging;
-using Ubiq.Spawning;
 
-public class MyNetworkedObject : MonoBehaviour, INetworkSpawnable
+public class MyNetworkedObject : MonoBehaviour
 {
-    public NetworkId NetworkId { get; set; }
-
     NetworkContext context;
 
     // Start is called before the first frame update
