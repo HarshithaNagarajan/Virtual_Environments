@@ -643,6 +643,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1456361563}
   - {fileID: 2055795340}
   - {fileID: 316080951}
   - {fileID: 8245267066359241568}
@@ -3249,6 +3250,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mother
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ca3ce2ac781600b4985ea1c2448fca88, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1196217696672835772, guid: ca3ce2ac781600b4985ea1c2448fca88, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.000000016870501
@@ -3847,7 +3852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &684492163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4039,6 +4044,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 0656a7e5759ccaf40a463b72bbf3a345, type: 3}
       propertyPath: m_Name
       value: general_street_straight_w_sidewalk_long (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0656a7e5759ccaf40a463b72bbf3a345, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0656a7e5759ccaf40a463b72bbf3a345, type: 3}
       propertyPath: m_LocalScale.x
@@ -4819,6 +4828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: general_street_straight_w_sidewalk_long (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0656a7e5759ccaf40a463b72bbf3a345, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0656a7e5759ccaf40a463b72bbf3a345, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -5464,6 +5477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: general_street_crossing_no_markings (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 89ddfff65d6074a41a2f3f1b7c8bc51c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 89ddfff65d6074a41a2f3f1b7c8bc51c, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -5616,7 +5633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1191315830
 Transform:
   m_ObjectHideFlags: 0
@@ -6811,6 +6828,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: dcf23c52671c57b4a95b7380943f6ca9, type: 3}
       propertyPath: m_Name
       value: Father
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dcf23c52671c57b4a95b7380943f6ca9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1092408308860062549, guid: dcf23c52671c57b4a95b7380943f6ca9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8400,6 +8421,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: general_street_straight_w_sidewalk_long (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0656a7e5759ccaf40a463b72bbf3a345, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0656a7e5759ccaf40a463b72bbf3a345, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -8486,7 +8511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1456361563
 Transform:
   m_ObjectHideFlags: 0
@@ -8495,13 +8520,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456361562}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 823.54, y: 0, z: 559.8866}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.571045, y: 0, z: -6.8934326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1629098769}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 261526883}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1464622929
 GameObject:
@@ -8619,6 +8644,10 @@ PrefabInstance:
     - target: {fileID: 1279140426991430450, guid: 360690a7c06559a4f927c76899139848, type: 3}
       propertyPath: m_Name
       value: FirstAidKit_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279140426991430450, guid: 360690a7c06559a4f927c76899139848, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2853930486529300769, guid: 360690a7c06559a4f927c76899139848, type: 3}
       propertyPath: m_LocalScale.x
@@ -8824,6 +8853,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 0656a7e5759ccaf40a463b72bbf3a345, type: 3}
       propertyPath: m_Name
       value: general_street_straight_w_sidewalk_long
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0656a7e5759ccaf40a463b72bbf3a345, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0656a7e5759ccaf40a463b72bbf3a345, type: 3}
       propertyPath: m_LocalScale.x
@@ -10759,7 +10792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!183 &1695547422
 Cloth:
   m_ObjectHideFlags: 0
@@ -11386,6 +11419,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: general_street_straight_w_sidewalk_long (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0656a7e5759ccaf40a463b72bbf3a345, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0656a7e5759ccaf40a463b72bbf3a345, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -11514,6 +11551,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a068f14dc38ba3345a1d2afb73e63ad2, type: 3}
       propertyPath: m_Name
       value: Shannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a068f14dc38ba3345a1d2afb73e63ad2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11724,6 +11765,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 2d2d6da714fef474d8db5b7411f0f56c, type: 3}
       propertyPath: m_Name
       value: RemyGirl
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2d2d6da714fef474d8db5b7411f0f56c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11960,6 +12005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: general_street_straight_w_sidewalk_long (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 0656a7e5759ccaf40a463b72bbf3a345, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 0656a7e5759ccaf40a463b72bbf3a345, type: 3}
       propertyPath: m_LocalScale.x
       value: 5
@@ -12085,6 +12134,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3523a739438adf14188535f4b87d1a09, type: 3}
       propertyPath: m_Name
       value: Jody
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3523a739438adf14188535f4b87d1a09, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12292,6 +12345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Michelle
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3286ef19f2464bf42a727308b6fc9c5a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12313,6 +12370,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 89ddfff65d6074a41a2f3f1b7c8bc51c, type: 3}
       propertyPath: m_Name
       value: general_street_crossing_no_markings
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 89ddfff65d6074a41a2f3f1b7c8bc51c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 89ddfff65d6074a41a2f3f1b7c8bc51c, type: 3}
       propertyPath: m_LocalScale.x
@@ -12953,7 +13014,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2055795340
 Transform:
   m_ObjectHideFlags: 0
@@ -13409,6 +13470,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 01c79ca465055074eb7a0540de78d169, type: 3}
       propertyPath: m_Name
       value: Remy
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01c79ca465055074eb7a0540de78d169, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14030,6 +14095,10 @@ PrefabInstance:
       value: Epipen
       objectReference: {fileID: 0}
     - target: {fileID: 7635653496959290052, guid: d38ae028e4602ad4fbb8bbdbd07d157d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7635653496959290052, guid: d38ae028e4602ad4fbb8bbdbd07d157d, type: 3}
       propertyPath: m_TagString
       value: Epipen
       objectReference: {fileID: 0}
@@ -14059,7 +14128,6 @@ SceneRoots:
   - {fileID: 261526883}
   - {fileID: 2065098753}
   - {fileID: 684492166}
-  - {fileID: 1456361563}
   - {fileID: 657652511}
   - {fileID: 1261199994}
   - {fileID: 2083470119}
