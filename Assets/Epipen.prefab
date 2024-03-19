@@ -204,7 +204,6 @@ GameObject:
   - component: {fileID: 3053081152414064540}
   - component: {fileID: 4490367271333657463}
   - component: {fileID: 3455377764206900966}
-  - component: {fileID: 5860695902958005441}
   m_Layer: 0
   m_Name: Epipen
   m_TagString: Untagged
@@ -481,15 +480,3 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &5860695902958005441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7635653496959290052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af45f154f35b5e42bf64a4864d1a130, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
