@@ -2,30 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EpipenCollision : MonoBehaviour
+public class ColliderScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    void OnColliderEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Epipen"){
-            print("Collider hit by an Epipen");
+            print("Just hit by an Epipen");
         }
     }
 
     // Update is called once per frame
-    void OnColliderStay(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Epipen"){
-            
-            print("Collider by Epipen");
+            print("Hit by Epipen");
         }
         
     }
 
-    void OnColliderExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Epipen"){
-            print("Collider Exit Epipen");
+            print("Exit Epipen");
         }
         
     }
