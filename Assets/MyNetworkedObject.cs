@@ -6,6 +6,7 @@ using Ubiq.Messaging;
 public class Epipen : MonoBehaviour
 {
     NetworkContext context;
+    public bool owner;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class Epipen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (owner) {
         if(lastPosition != transform.localPosition)
         {
             lastPosition = transform.localPosition;
@@ -25,6 +27,7 @@ public class Epipen : MonoBehaviour
             {
                 position = transform.localPosition
             });
+        }
         }
     }
 
