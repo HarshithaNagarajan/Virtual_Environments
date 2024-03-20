@@ -6,7 +6,7 @@ using Ubiq.Geometry;
 using UnityEngine.XR.Interaction.Toolkit;
 
 
-public class Epipen : MonoBehaviour
+public class MyNetworkedObject : MonoBehaviour
 {
     NetworkContext context;
     public bool isOwner;
