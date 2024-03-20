@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using SIPSorceryMedia.Abstractions;
 using UnityEngine;
 
 public class playChokingSound : MonoBehaviour
