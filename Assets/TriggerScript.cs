@@ -8,7 +8,6 @@ public class TriggerScript : MonoBehaviour
     // Start is called before the first frame update
     AudioSource audioSource;
     private Animator epipenAnimator;
-    GameObject epipenObject;
 
     void Start()
     {
@@ -18,16 +17,13 @@ public class TriggerScript : MonoBehaviour
 
     void Awake(){
         audioSource = GetComponent<AudioSource>();
-        epipenObject = GameObject.FindGameObjectWithTag("Epipen");
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Epipen"){
-            epipenObject.transform.Rotate(new Vector3(-126, 0, 0));
-            epipenObject.transform.localPosition = new Vector3((float)-2.819, (float)0.293, (float)-7.873);
             print("Just hit by an Epipen");
-            
+            GameObject epipenObject = GameObject.FindGameObjectWithTag("Epipen");
         // if (epipenObject != null)
         // {
         //     epipenAnimator = epipenObject.GetComponent<Animator>();
