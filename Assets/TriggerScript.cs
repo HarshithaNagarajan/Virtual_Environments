@@ -7,57 +7,49 @@ public class TriggerScript : MonoBehaviour
 {
     // Start is called before the first frame update
     AudioSource audioSource;
-    private Animator epipenAnimator;
+    Animator epipenAnimator;
+    
+    private bool hasTriggered = false;
 
     void Start()
     {
-        // Find the game object with the tag "Epipen" and get its Animator component
+        epipenAnimator = GameObject.FindGameObjectWithTag("Epipen").GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         
     }
 
     void Awake(){
-        audioSource = GetComponent<AudioSource>();
+        
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Epipen"){
-            print("Just hit by an Epipen");
-            GameObject epipenObject = GameObject.FindGameObjectWithTag("Epipen");
-        // if (epipenObject != null)
-        // {
-        //     epipenAnimator = epipenObject.GetComponent<Animator>();
-        //     epipenAnimator.SetTrigger("Epipen");
-        // }
-        // else
-        // {
-        //     Debug.LogError("Epipen object not found!");
-        // }
-            
+        if (other.gameObject.tag == "Epipen" && !hasTriggered)
+        {
+            Debug.Log("Just hit by an Epipen");
             audioSource.Play();
+            epipenAnimator.SetTrigger("Epipen");
+            hasTriggered = true;
         }
     }
 
     // Update is called once per frame
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Epipen"){
-            // transform.Rotate(90, 90, 90);
-            print("Hit by Epipen");
-            // epipenAnimator.SetBool("triggeredEpipen", true);
-
+        if (other.gameObject.tag == "Epipen")
+        {
+            Debug.Log("Hit by Epipen");
+            // Perform any continuous actions here if needed
         }
-        
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Epipen"){
-            print("Exit Epipen");
+        if (other.gameObject.tag == "Epipen")
+        {
+            Debug.Log("Exit Epipen");
             audioSource.Stop();
-            // epipenAnimator.SetBool("triggeredEpipen", false);
-
+            // Perform any actions needed when exiting the trigger zone
         }
-        
     }
 }
