@@ -21,7 +21,7 @@ public class MyNetworkedAnimation : MonoBehaviour
     void Update()
     {
         var message = new Message();
-        message.animationState = animator.GetCurrentAnimatorStateInfo(0); // Get current animation state
+        // message.animationState = animator.GetCurrentAnimatorStateInfo(0); // Get current animation state
         context.SendJson(message);
     }
 

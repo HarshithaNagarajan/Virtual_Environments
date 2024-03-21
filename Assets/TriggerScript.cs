@@ -11,7 +11,7 @@ public class TriggerScript : MonoBehaviour
 
     public static TriggerScript instance; 
     public bool hasTriggered = false;
-    private bool isAudioPlaying = false; // Track whether audio is playing
+    public bool isAudioPlaying = false; // Track whether audio is playing
 
     void Start()
     {

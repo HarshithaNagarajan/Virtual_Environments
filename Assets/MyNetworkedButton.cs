@@ -9,6 +9,8 @@ using UnityEngine.UI;
 public class MyNetworkedButton : MonoBehaviour
 {
     NetworkContext context;
+    private bool buttonClicked = false; 
+    private Button.ButtonClickedEvent m_OnClick;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +19,7 @@ public class MyNetworkedButton : MonoBehaviour
         
         var button = GetComponent<Button>();
         button.onClick.AddListener(ButtonClicked);
+        m_OnClick = button.onClick;
     }
 
     // Update is called once per frame
@@ -24,19 +27,28 @@ public class MyNetworkedButton : MonoBehaviour
     {
     
         var message = new Message();
-        message.buttonClicked = true;
+        // message.buttonClicked = true;
+        message.buttonClickedEvent = m_OnClick;
         context.SendJson(message);
 
         
     }
     private struct Message
     {
-        public bool buttonClicked;
+        public Button.ButtonClickedEvent buttonClickedEvent;
     }
 
     public void ProcessMessage(ReferenceCountedSceneGraphMessage message)
     {
         var m = message.FromJson<Message>();
 
+        if (m.buttonClickedEvent != null)
+        {
+            // Perform actions upon receiving the onClick event
+            Debug.Log("Button Clicked Event Received!");
+
+            // Invoke the received onClick event
+            m.buttonClickedEvent.Invoke();
+        }
     }
 }
