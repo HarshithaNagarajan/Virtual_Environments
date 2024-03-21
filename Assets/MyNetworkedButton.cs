@@ -25,7 +25,6 @@ public class MyNetworkedButton : MonoBehaviour
     // Update is called once per frame
     void ButtonClicked()
     {
-    
         var message = new Message();
         // message.buttonClicked = true;
         message.buttonClickedEvent = m_OnClick;
