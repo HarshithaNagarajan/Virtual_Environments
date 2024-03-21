@@ -9,7 +9,8 @@ public class TriggerScript : MonoBehaviour
     Animator epipenAnimator;
     NetworkContext context;
 
-    private bool hasTriggered = false;
+    public static TriggerScript instance; 
+    public bool hasTriggered = false;
     private bool isAudioPlaying = false; // Track whether audio is playing
 
     void Start()
@@ -19,13 +20,19 @@ public class TriggerScript : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    void Awake() {
+        if (instance == null ){
+            instance = this;
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Epipen" && !hasTriggered)
         {
-            Debug.Log("Just hit by an Epipen");
+            // Debug.Log("Just hit by an Epipen");
             audioSource.Play();
-            epipenAnimator.SetTrigger("Epipen");
+            // epipenAnimator.SetTrigger("Epipen");
             hasTriggered = true;
 
             // Update audio state and send network message
@@ -38,7 +45,7 @@ public class TriggerScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Epipen")
         {
-            Debug.Log("Exit Epipen");
+            // Debug.Log("Exit Epipen");
             audioSource.Stop();
             // Perform any actions needed when exiting the trigger zone
 
