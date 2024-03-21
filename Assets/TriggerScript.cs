@@ -1,25 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
-using SIPSorceryMedia.Abstractions;
 using UnityEngine;
+using Ubiq.Messaging;
 
 public class TriggerScript : MonoBehaviour
 {
-    // Start is called before the first frame update
     AudioSource audioSource;
     Animator epipenAnimator;
-    
+    NetworkContext context;
+
     private bool hasTriggered = false;
+    private bool isAudioPlaying = false; // Track whether audio is playing
 
     void Start()
     {
+        context = NetworkScene.Register(this);
         epipenAnimator = GameObject.FindGameObjectWithTag("Epipen").GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
-        
-    }
-
-    void Awake(){
-        
     }
 
     void OnTriggerEnter(Collider other)
@@ -30,16 +27,10 @@ public class TriggerScript : MonoBehaviour
             audioSource.Play();
             epipenAnimator.SetTrigger("Epipen");
             hasTriggered = true;
-        }
-    }
 
-    // Update is called once per frame
-    void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Epipen")
-        {
-            Debug.Log("Hit by Epipen");
-            // Perform any continuous actions here if needed
+            // Update audio state and send network message
+            isAudioPlaying = true;
+            SendNetworkMessage();
         }
     }
 
@@ -50,6 +41,36 @@ public class TriggerScript : MonoBehaviour
             Debug.Log("Exit Epipen");
             audioSource.Stop();
             // Perform any actions needed when exiting the trigger zone
+
+            // Update audio state and send network message
+            isAudioPlaying = false;
+            SendNetworkMessage();
+        }
+    }
+
+    void SendNetworkMessage()
+    {
+        var message = new Message();
+        message.isAudioPlaying = isAudioPlaying;
+        context.SendJson(message);
+    }
+
+    private struct Message
+    {
+        public bool isAudioPlaying;
+    }
+
+    public void ProcessMessage(ReferenceCountedSceneGraphMessage message)
+    {
+        var m = message.FromJson<Message>();
+        // Update audio state based on the received message
+        if (m.isAudioPlaying)
+        {
+            audioSource.Play();
+        }
+        else
+        {
+            audioSource.Stop();
         }
     }
 }
