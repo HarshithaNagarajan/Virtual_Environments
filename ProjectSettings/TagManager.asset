@@ -9,6 +9,8 @@ TagManager:
   - avatarHead
   - Oximeter
   - OxygenMask
+  - PatientIndexFinger
+  - OximeterReadingsPanel
   layers:
   - Default
   - TransparentFX
