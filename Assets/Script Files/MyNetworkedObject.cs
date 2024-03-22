@@ -9,6 +9,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class MyNetworkedObject : MonoBehaviour
 {
     NetworkContext context;
+    PositionRotation lastSentPose;
     // public bool isOwner;
 
 
@@ -37,11 +38,15 @@ public class MyNetworkedObject : MonoBehaviour
     void Update()
     {
         // Only the owner should send updates
-        
-           
+        var currentPose = Transforms.ToLocal(transform, context.Scene.transform);
+        if (!currentPose.Equals(lastSentPose))
+        {
             var message = new Message();
-            message.pose = Transforms.ToLocal(transform, context.Scene.transform);
+            message.pose = currentPose;
             context.SendJson(message);
+            lastSentPose = currentPose;
+        }
+            
     }
 
     private struct Message
