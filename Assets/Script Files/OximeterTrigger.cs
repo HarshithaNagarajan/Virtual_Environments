@@ -26,13 +26,14 @@ public class OximeterTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-
-        if (other.gameObject.tag == "PatientIndexFinger")
-        {
-            if (OximeterPanel != null)
+        if (OximeterPanel != null && other.gameObject.tag != "OtherMedical")
             {
                 OximeterPanel.SetActive(true); // Activate the Canvas panel
             }
+
+        if (other.gameObject.tag == "PatientIndexFinger")
+        {
+            
             if (!TriggerScript.instance.hasTriggered)
             {
                 Debug.Log("Not hit by an Epipen yet ");
