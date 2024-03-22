@@ -11,6 +11,7 @@ TagManager:
   - OxygenMask
   - PatientIndexFinger
   - OximeterReadingsPanel
+  - OtherMedical
   layers:
   - Default
   - TransparentFX
