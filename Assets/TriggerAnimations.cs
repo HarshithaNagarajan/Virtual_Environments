@@ -18,7 +18,6 @@ public class TriggerAnimations : MonoBehaviour
     }
     public void onClick()
     {
-        print("Button Clicked");
         for (int i = 0; i < AnimationsToTrigger.Length; i++)
         {
             AnimationsToTrigger[i].GetComponent<Animator>().SetBool("Begin", true);
