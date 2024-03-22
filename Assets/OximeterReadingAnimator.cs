@@ -1,77 +1,123 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 
 public class OximeterReadingAnimator : MonoBehaviour
 {
-    public int OximeterReading;
-    public TextMeshProUGUI TopReading;
-    public int CountFPS = 30;
+    public TextMeshProUGUI topReading;
+    public int countFPS = 30;
     public float duration = 1f;
-    private int _value;
-    public string NumberFormat = "N0";
+    private int value;
+    public string numberFormat = "N0";
+    public static OximeterReadingAnimator instance;
 
-    private Coroutine CountingCoroutine;
+    private Coroutine countingCoroutine;
 
+
+void Awake() {
+        if (instance == null ){
+            instance = this;
+        }
+    }
     public int Value {
         get {
-            return  _value;
+            return value;
         }
-        set{
+        set {
             UpdateText(value);
-            _value = value;
+            this.value = value;
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        TopReading = GetComponent<TextMeshProUGUI>();
+    //      if (topReading == null)
+    // {
+        topReading = GetComponent<TextMeshProUGUI>();
+    // }
+        // if (OximeterTrigger.instance != null)
+        // {
+        //     topReading = OximeterTrigger.instance.OximeterReading;
+        // }
+        // else
+        // {
+        //     topReading.text = "95"; // Default value if OximeterTrigger or its OximeterReading is not set
+        // }
     }
 
     // Update is called once per frame
 
-        private void UpdateText(int newValue){
-        if (CountingCoroutine != null){
-            StopCoroutine(CountText(newValue));
-        } 
-        CountingCoroutine = StartCoroutine(CountText(newValue));
-        
+    private void UpdateText(int newValue)
+    {
+        if (countingCoroutine != null)
+        {
+            StopCoroutine(countingCoroutine);
+        }
+        countingCoroutine = StartCoroutine(CountText(newValue));
     }
 
-    private IEnumerator CountText(int newValue){
-        WaitForSeconds Wait = new WaitForSeconds(1f / CountFPS);
-        int previousValue = _value;
-        int stepAmount;
+    private IEnumerator CountText(int newValue)
+    {
+        // WaitForSeconds wait = new WaitForSeconds(1f / countFPS);
+        // int oldValue = value;
 
-        if(newValue - previousValue < 0){
-            stepAmount = Mathf.FloorToInt(newValue - previousValue / (CountFPS * duration));
-        } else {
-            stepAmount = Mathf.CeilToInt(newValue - previousValue / (CountFPS * duration));
+        // // Calculate the step count between the old and new values
+        // int stepCount = Mathf.Abs(newValue - oldValue);
 
-        } if (previousValue < newValue){
-            while(previousValue < newValue){
-                previousValue += stepAmount;
-                if (previousValue > newValue){
-                    previousValue = newValue;
-                }
+        // // Determine the direction of counting
+        // int increment = (int)Mathf.Sign(newValue - oldValue);
 
-                TopReading.SetText(previousValue.ToString(NumberFormat));
+        // // Start counting from the old value
+        // int currentValue = oldValue;
 
-                yield return Wait;
+        // for (int i = 0; i <= stepCount; i++)
+        // {
+        //     // Update the text with the current value
+        //     topReading.text = currentValue.ToString(numberFormat);
+
+        //     // Increment or decrement the current value
+        //     currentValue += increment;
+        //     Debug.Log("Current Reading is "+ topReading.text);
+        //     yield return wait;
+        // }
+        WaitForSeconds wait = new WaitForSeconds(1f / countFPS);
+        int previousValue = value;
+
+        // Calculate the step amount as the difference between the new and previous values
+        int stepAmount = newValue - previousValue;
+
+        // Determine the direction of counting
+        int increment = (int)Mathf.Sign(stepAmount);
+
+        while (previousValue != newValue)
+        {
+            // Increment the previous value by the step amount
+            previousValue += increment;
+
+            // Ensure that the previous value does not overshoot the target value
+            if (increment > 0 && previousValue > newValue)
+            {
+                previousValue = newValue;
             }
-        } else {
-            while(previousValue > newValue){
-                previousValue += stepAmount;
-                if (previousValue < newValue){
-                    previousValue = newValue;
-                }
-
-                TopReading.SetText(previousValue.ToString(NumberFormat));
-
-                yield return Wait;
+            else if (increment < 0 && previousValue < newValue)
+            {
+                previousValue = newValue;
             }
+
+            // Update the text
+            // topReading.text = previousValue.ToString(numberFormat);
+            topReading.SetText(previousValue.ToString(numberFormat));
+           
+            Debug.Log("Current Reading is "+ topReading.text);
+            yield return wait;
         }
     }
 }
+
+
+
+
+

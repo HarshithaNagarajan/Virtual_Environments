@@ -10,48 +10,48 @@ using Unity.VisualScripting;
 public class OximeterTrigger : MonoBehaviour
 {
     NetworkContext context;
-    
+
     public bool hasTriggered = false;
     public bool isAudioPlaying = false; // Track whether audio is playing
-    
+
     public static OximeterTrigger instance;
-    public int OximeterReading = 0;
+    public OximeterReadingAnimator readingAnimator;
+    public int OximeterReading = 95;
+    public GameObject OximeterPanel;
     void Start()
     {
         context = NetworkScene.Register(this);
+        OximeterPanel = GameObject.FindWithTag("OximeterReadingsPanel");
     }
-
-
-
-    
-
-
-
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Oximeter")
+        if (OximeterPanel != null)
+        {
+            OximeterPanel.SetActive(true); // Activate the Canvas panel
+        }
+        if (other.gameObject.tag == "PatientIndexFinger")
         {
             if (!TriggerScript.instance.hasTriggered)
             {
                 Debug.Log("Not hit by an Epipen yet ");
-                OximeterReading = 92;
+                OximeterReadingAnimator.instance.Value = 92;
                 //set oximeterReading low
             }
-            else  if (TriggerScript.instance.hasTriggered && !OxygenMaskTrigger.instance.hasTriggered)
+            else if (TriggerScript.instance.hasTriggered && !OxygenMaskTrigger.instance.hasTriggered)
             {
                 Debug.Log("Just hit by an Epipen yet ");
                 //set oximeterReading slightly higher
-                OximeterReading = 94;
+                OximeterReadingAnimator.instance.Value = 94;
 
             }
             else if (TriggerScript.instance.hasTriggered && OxygenMaskTrigger.instance.hasTriggered)
             {
                 Debug.Log("After hit by oxygen mask");
                 //set oximeterReading high
-                OximeterReading = 98;
+                OximeterReadingAnimator.instance.Value = 98;
             }
-            
+
 
             // audioSource.Play();
             // // epipenAnimator.SetTrigger("Epipen");
@@ -66,7 +66,10 @@ public class OximeterTrigger : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         //set OximeteReading to 0
-        OximeterReading = 0;
+        if (OximeterReadingAnimator.instance != null) {
+        OximeterReadingAnimator.instance.Value = 0;
+
+        }
     }
 
     void SendNetworkMessage()
@@ -85,6 +88,6 @@ public class OximeterTrigger : MonoBehaviour
     {
         var m = message.FromJson<Message>();
         // Update audio state based on the received message
-        
+        OximeterReadingAnimator.instance.Value = m.OximeterReading;
     }
 }
