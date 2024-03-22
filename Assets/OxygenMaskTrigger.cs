@@ -5,17 +5,20 @@ using Ubiq.Messaging;
 
 public class OxygenMaskTrigger : MonoBehaviour
 {
-    AudioSource audioSource;
+    public AudioSource OxygenMaskSound;
+    public AudioSource breathingSound;
     NetworkContext context;
 
     public static OxygenMaskTrigger instance; 
     public bool hasTriggered = false;
-    public bool isAudioPlaying = false; // Track whether audio is playing
+    public bool isOxygenMaskAudioPlaying = false; // Track whether audio is playing
+    public bool isBreathingAudioPlaying = false; // Track whether audio is playing
 
     void Start()
     {
         context = NetworkScene.Register(this);
-        audioSource = GetComponent<AudioSource>();
+        OxygenMaskSound = GetComponent<AudioSource>();
+        breathingSound = GetComponent<AudioSource>();
     }
 
     void Awake() {
@@ -29,12 +32,12 @@ public class OxygenMaskTrigger : MonoBehaviour
         if (other.gameObject.tag == "OxygenMask")
         {
             // Debug.Log("Just hit by an Epipen");
-            audioSource.Play();
+            OxygenMaskSound.Play();
             // epipenAnimator.SetTrigger("Epipen");
             hasTriggered = true;
 
             // Update audio state and send network message
-            isAudioPlaying = true;
+            isOxygenMaskAudioPlaying = true;
             SendNetworkMessage();
         }
     }
@@ -44,11 +47,13 @@ public class OxygenMaskTrigger : MonoBehaviour
         if (other.gameObject.tag == "OxygenMask")
         {
             // Debug.Log("Exit Epipen");
-            audioSource.Stop();
+            OxygenMaskSound.Stop();
+            breathingSound.Play();
             // Perform any actions needed when exiting the trigger zone
 
             // Update audio state and send network message
-            isAudioPlaying = false;
+            isOxygenMaskAudioPlaying = false;
+            isBreathingAudioPlaying = true;
             SendNetworkMessage();
         }
     }
@@ -56,26 +61,37 @@ public class OxygenMaskTrigger : MonoBehaviour
     void SendNetworkMessage()
     {
         var message = new Message();
-        message.isAudioPlaying = isAudioPlaying;
+        message.isOxygenMaskAudioPlaying = isOxygenMaskAudioPlaying;
+        message.isBreathingAudioPlaying = isBreathingAudioPlaying;
         context.SendJson(message);
     }
 
     private struct Message
     {
-        public bool isAudioPlaying;
+        public bool isOxygenMaskAudioPlaying;
+        public bool isBreathingAudioPlaying;
     }
 
     public void ProcessMessage(ReferenceCountedSceneGraphMessage message)
     {
         var m = message.FromJson<Message>();
         // Update audio state based on the received message
-        if (m.isAudioPlaying)
+        if (m.isOxygenMaskAudioPlaying)
         {
-            audioSource.Play();
+            OxygenMaskSound.Play();
         }
         else
         {
-            audioSource.Stop();
+            OxygenMaskSound.Stop();
+        }
+
+        if (m.isBreathingAudioPlaying)
+        {
+            breathingSound.Play();
+        }
+        else
+        {
+            breathingSound.Stop();
         }
     }
 }
