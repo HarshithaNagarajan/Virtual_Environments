@@ -9,7 +9,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class MyNetworkedObject : MonoBehaviour
 {
     NetworkContext context;
-    public bool isOwner;
+    // public bool isOwner;
 
 
 
@@ -37,14 +37,11 @@ public class MyNetworkedObject : MonoBehaviour
     void Update()
     {
         // Only the owner should send updates
-        if(isOwner)
-        {
+        
            
             var message = new Message();
             message.pose = Transforms.ToLocal(transform, context.Scene.transform);
             context.SendJson(message);
-
-        }
     }
 
     private struct Message

@@ -35,14 +35,14 @@ public class OximeterTrigger : MonoBehaviour
             if (!TriggerScript.instance.hasTriggered)
             {
                 Debug.Log("Not hit by an Epipen yet ");
-                OximeterReadingAnimator.instance.Value = 92;
+                OximeterReadingAnimator.instance.Value = 89;
                 //set oximeterReading low
             }
             else if (TriggerScript.instance.hasTriggered && !OxygenMaskTrigger.instance.hasTriggered)
             {
                 Debug.Log("Just hit by an Epipen yet ");
                 //set oximeterReading slightly higher
-                OximeterReadingAnimator.instance.Value = 94;
+                OximeterReadingAnimator.instance.Value = 92;
 
             }
             else if (TriggerScript.instance.hasTriggered && OxygenMaskTrigger.instance.hasTriggered)
