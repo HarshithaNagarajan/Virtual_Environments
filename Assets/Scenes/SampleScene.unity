@@ -2001,7 +2001,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToToggle:
   - {fileID: 2013173881}
-  - {fileID: 0}
 --- !u!1001 &211891305
 PrefabInstance:
   m_ObjectHideFlags: 0
