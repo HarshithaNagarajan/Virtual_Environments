@@ -16,7 +16,7 @@ public class OximeterTrigger : MonoBehaviour
 
     public static OximeterTrigger instance;
     public OximeterReadingAnimator readingAnimator;
-    public int OximeterReading = 95;
+    public int OximeterReading = 0;
     public GameObject OximeterPanel;
     void Start()
     {
@@ -36,31 +36,20 @@ public class OximeterTrigger : MonoBehaviour
             
             if (!TriggerScript.instance.hasTriggered)
             {
-                Debug.Log("Not hit by an Epipen yet ");
                 OximeterReadingAnimator.instance.Value = 89;
-                //set oximeterReading low
             }
             else if (TriggerScript.instance.hasTriggered && !OxygenMaskTrigger.instance.hasTriggered)
             {
-                Debug.Log("Just hit by an Epipen yet ");
-                //set oximeterReading slightly higher
+               
                 OximeterReadingAnimator.instance.Value = 92;
 
             }
             else if (TriggerScript.instance.hasTriggered && OxygenMaskTrigger.instance.hasTriggered)
             {
-                Debug.Log("After hit by oxygen mask");
-                //set oximeterReading high
+                
                 OximeterReadingAnimator.instance.Value = 98;
             }
 
-
-            // audioSource.Play();
-            // // epipenAnimator.SetTrigger("Epipen");
-            // hasTriggered = true;
-
-            // // Update audio state and send network message
-            // isAudioPlaying = true;
             SendNetworkMessage();
         }
     }
