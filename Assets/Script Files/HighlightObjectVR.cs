@@ -5,16 +5,9 @@ using UnityEngine;
 public class HighlightObjectVR : MonoBehaviour
 {
     private Outline outline;
-    
-    //void Start()
-    //{
-     //   outline = gameObject.AddComponent<Outline>();
-    //}
-    
-
+   
     public void OnHoverEnter()
     {
-        //outline = gameObject.AddComponent<Outline>();
         if (outline != null) 
         {
             outline.enabled = true;
@@ -32,7 +25,6 @@ public class HighlightObjectVR : MonoBehaviour
 
     public void OnHoverExit()
     {
-        //Outline outline = gameObject.AddComponent<Outline>();
         if (outline != null)
         {
             outline.enabled = false;
@@ -42,7 +34,6 @@ public class HighlightObjectVR : MonoBehaviour
 
     public void onSelect()
     {
-        //Outline outline = gameObject.AddComponent<Outline>();
         if (outline != null)
         {
             outline.enabled = false;

@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Ubiq.Messaging;
 
-public class TriggerScript : MonoBehaviour
+public class OxygenMaskTrigger : MonoBehaviour
 {
     AudioSource audioSource;
-    Animator epipenAnimator;
     NetworkContext context;
 
-    public static TriggerScript instance; 
+    public static OxygenMaskTrigger instance; 
     public bool hasTriggered = false;
     public bool isAudioPlaying = false; // Track whether audio is playing
 
     void Start()
     {
         context = NetworkScene.Register(this);
-        epipenAnimator = GameObject.FindGameObjectWithTag("Epipen").GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -28,7 +26,7 @@ public class TriggerScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Epipen" && !hasTriggered)
+        if (other.gameObject.tag == "OxygenMask")
         {
             // Debug.Log("Just hit by an Epipen");
             audioSource.Play();
@@ -43,7 +41,7 @@ public class TriggerScript : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Epipen")
+        if (other.gameObject.tag == "OxygenMask")
         {
             // Debug.Log("Exit Epipen");
             audioSource.Stop();
