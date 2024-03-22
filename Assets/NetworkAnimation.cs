@@ -32,7 +32,6 @@ public class NetworkAnimation : MonoBehaviour
             message.triggerAnimation = trigger;
             context.SendJson(message); 
             triggered = trigger;
-            print("triggered loop");
         }
 
         if (!loop && !triggered && trigger){
@@ -40,7 +39,6 @@ public class NetworkAnimation : MonoBehaviour
             message.triggerAnimation = trigger;
             context.SendJson(message); 
             triggered = true;
-            print("triggered non");
         }
     }
 
