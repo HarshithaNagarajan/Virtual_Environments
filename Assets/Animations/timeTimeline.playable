@@ -169,12 +169,12 @@ MonoBehaviour:
   m_InfiniteClipRemoveOffset: 0
   m_InfiniteClipApplyFootIK: 1
   mInfiniteClipLoop: 0
-  m_MatchTargetFields: 63
+  m_MatchTargetFields: 7
   m_Position: {x: 810, y: 0, z: 576}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_AvatarMask: {fileID: 0}
   m_ApplyAvatarMask: 1
-  m_TrackOffset: 0
+  m_TrackOffset: 1
   m_InfiniteClip: {fileID: 0}
   m_OpenClipOffsetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
@@ -519,16 +519,38 @@ MonoBehaviour:
   m_InfiniteClipRemoveOffset: 0
   m_InfiniteClipApplyFootIK: 1
   mInfiniteClipLoop: 0
-  m_MatchTargetFields: 63
+  m_MatchTargetFields: 7
   m_Position: {x: 808.5, y: 0, z: 568.8}
   m_EulerAngles: {x: 0, y: -30, z: 0}
   m_AvatarMask: {fileID: 0}
   m_ApplyAvatarMask: 1
-  m_TrackOffset: 0
+  m_TrackOffset: 1
   m_InfiniteClip: {fileID: 0}
   m_OpenClipOffsetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_ApplyOffsets: 0
+--- !u!114 &-7649350916660778672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
+  m_Name: AnimationPlayableAsset
+  m_EditorClassIdentifier: 
+  m_Clip: {fileID: -203655887218126122, guid: 9315cdac789648945b3c9b85972d6b53, type: 3}
+  m_Position: {x: 0, y: 0, z: 0}
+  m_EulerAngles: {x: 0, y: 0, z: 0}
+  m_UseTrackMatchFields: 1
+  m_MatchTargetFields: 63
+  m_RemoveStartOffset: 1
+  m_ApplyFootIK: 1
+  m_Loop: 0
+  m_Version: 1
+  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &-6383230024712523814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -542,6 +564,28 @@ MonoBehaviour:
   m_Name: AnimationPlayableAsset(Clone)(Clone)(Clone)(Clone)
   m_EditorClassIdentifier: 
   m_Clip: {fileID: -203655887218126122, guid: af177170a1810bb4ca5b6a8f293d34bc, type: 3}
+  m_Position: {x: 0, y: 0, z: 0}
+  m_EulerAngles: {x: 0, y: 0, z: 0}
+  m_UseTrackMatchFields: 1
+  m_MatchTargetFields: 63
+  m_RemoveStartOffset: 1
+  m_ApplyFootIK: 1
+  m_Loop: 0
+  m_Version: 1
+  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+--- !u!114 &-6106211058697166869
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
+  m_Name: AnimationPlayableAsset
+  m_EditorClassIdentifier: 
+  m_Clip: {fileID: -203655887218126122, guid: 675a8641198e2744880ee6f237b1b2ed, type: 3}
   m_Position: {x: 0, y: 0, z: 0}
   m_EulerAngles: {x: 0, y: 0, z: 0}
   m_UseTrackMatchFields: 1
@@ -573,7 +617,7 @@ MonoBehaviour:
   m_Loop: 0
   m_Version: 1
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
---- !u!114 &-2957398329253845987
+--- !u!114 &-1232635892268552224
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -597,10 +641,10 @@ MonoBehaviour:
   - m_Version: 1
     m_Start: 0.3
     m_ClipIn: 0
-    m_Asset: {fileID: 1950226473708649467}
+    m_Asset: {fileID: -7649350916660778672}
     m_Duration: 10.866666666666667
     m_TimeScale: 1
-    m_ParentTrack: {fileID: -2957398329253845987}
+    m_ParentTrack: {fileID: -1232635892268552224}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
@@ -673,9 +717,9 @@ MonoBehaviour:
   m_InfiniteClipRemoveOffset: 0
   m_InfiniteClipApplyFootIK: 1
   mInfiniteClipLoop: 0
-  m_MatchTargetFields: 63
-  m_Position: {x: 810, y: 0, z: 562}
-  m_EulerAngles: {x: 0, y: 40, z: 0}
+  m_MatchTargetFields: 0
+  m_Position: {x: -8.277222, y: -0.24097428, z: 0}
+  m_EulerAngles: {x: 0, y: -185.434, z: 0}
   m_AvatarMask: {fileID: 0}
   m_ApplyAvatarMask: 1
   m_TrackOffset: 0
@@ -697,11 +741,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 0
   m_Tracks:
-  - {fileID: 76340014397966683}
-  - {fileID: -2957398329253845987}
   - {fileID: -7912139429700736811}
   - {fileID: 9140010737044574126}
   - {fileID: -7897785113421996522}
+  - {fileID: 928364890335176264}
+  - {fileID: -1232635892268552224}
   m_FixedDuration: 11.166666666667
   m_EditorSettings:
     m_Framerate: 60
@@ -730,7 +774,29 @@ MonoBehaviour:
   m_Loop: 0
   m_Version: 1
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
---- !u!114 &76340014397966683
+--- !u!114 &253420528555103823
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
+  m_Name: AnimationPlayableAsset(Clone)
+  m_EditorClassIdentifier: 
+  m_Clip: {fileID: -203655887218126122, guid: e5b163759ee58ae4fa6decb0aa38792d, type: 3}
+  m_Position: {x: 0, y: 0, z: 0}
+  m_EulerAngles: {x: 0, y: 0, z: 0}
+  m_UseTrackMatchFields: 1
+  m_MatchTargetFields: 63
+  m_RemoveStartOffset: 1
+  m_ApplyFootIK: 1
+  m_Loop: 0
+  m_Version: 1
+  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
+--- !u!114 &928364890335176264
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -754,10 +820,10 @@ MonoBehaviour:
   - m_Version: 1
     m_Start: 0.3
     m_ClipIn: 0
-    m_Asset: {fileID: 1259431858910718279}
-    m_Duration: 10.866666666666665
+    m_Asset: {fileID: -6106211058697166869}
+    m_Duration: 10.866666666666667
     m_TimeScale: 1
-    m_ParentTrack: {fileID: 76340014397966683}
+    m_ParentTrack: {fileID: 928364890335176264}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
     m_BlendInDuration: -1
@@ -831,8 +897,8 @@ MonoBehaviour:
   m_InfiniteClipApplyFootIK: 1
   mInfiniteClipLoop: 0
   m_MatchTargetFields: 63
-  m_Position: {x: 811, y: 0, z: 563}
-  m_EulerAngles: {x: 0, y: 180, z: 0}
+  m_Position: {x: -8.988464, y: -0.28183135, z: -1.2585449}
+  m_EulerAngles: {x: 0, y: 20.091, z: 0}
   m_AvatarMask: {fileID: 0}
   m_ApplyAvatarMask: 1
   m_TrackOffset: 0
@@ -840,72 +906,6 @@ MonoBehaviour:
   m_OpenClipOffsetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_ApplyOffsets: 0
---- !u!114 &253420528555103823
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
-  m_Name: AnimationPlayableAsset(Clone)
-  m_EditorClassIdentifier: 
-  m_Clip: {fileID: -203655887218126122, guid: e5b163759ee58ae4fa6decb0aa38792d, type: 3}
-  m_Position: {x: 0, y: 0, z: 0}
-  m_EulerAngles: {x: 0, y: 0, z: 0}
-  m_UseTrackMatchFields: 1
-  m_MatchTargetFields: 63
-  m_RemoveStartOffset: 1
-  m_ApplyFootIK: 1
-  m_Loop: 0
-  m_Version: 1
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
---- !u!114 &1259431858910718279
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
-  m_Name: AnimationPlayableAsset
-  m_EditorClassIdentifier: 
-  m_Clip: {fileID: -203655887218126122, guid: 9315cdac789648945b3c9b85972d6b53, type: 3}
-  m_Position: {x: 0, y: 0, z: 0}
-  m_EulerAngles: {x: 0, y: 0, z: 0}
-  m_UseTrackMatchFields: 1
-  m_MatchTargetFields: 63
-  m_RemoveStartOffset: 1
-  m_ApplyFootIK: 1
-  m_Loop: 0
-  m_Version: 1
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
---- !u!114 &1950226473708649467
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 030f85c3f73729f4f976f66ffb23b875, type: 3}
-  m_Name: AnimationPlayableAsset
-  m_EditorClassIdentifier: 
-  m_Clip: {fileID: -203655887218126122, guid: 675a8641198e2744880ee6f237b1b2ed, type: 3}
-  m_Position: {x: 0, y: 0, z: 0}
-  m_EulerAngles: {x: 0, y: 0, z: 0}
-  m_UseTrackMatchFields: 1
-  m_MatchTargetFields: 63
-  m_RemoveStartOffset: 1
-  m_ApplyFootIK: 1
-  m_Loop: 0
-  m_Version: 1
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &3113864918263031762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1167,12 +1167,12 @@ MonoBehaviour:
   m_InfiniteClipRemoveOffset: 0
   m_InfiniteClipApplyFootIK: 1
   mInfiniteClipLoop: 0
-  m_MatchTargetFields: 63
+  m_MatchTargetFields: 7
   m_Position: {x: 808, y: 0, z: 568}
   m_EulerAngles: {x: 0, y: -20, z: 0}
   m_AvatarMask: {fileID: 0}
   m_ApplyAvatarMask: 1
-  m_TrackOffset: 0
+  m_TrackOffset: 1
   m_InfiniteClip: {fileID: 0}
   m_OpenClipOffsetRotation: {x: 0, y: 0, z: 0, w: 1}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
