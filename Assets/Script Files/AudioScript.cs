@@ -43,7 +43,7 @@ public class ChokingAudio : MonoBehaviour
             {
                 chokingSound.Stop();
                 isChokingAudioPlaying = false;
-                if (!TriggerScript.instance.isAudioPlaying){
+                if (!TriggerScript.instance.isEpipenAudioPlaying){
                     breathingSound.Play();
                     isBreathingAudioPlaying = true;
                 }

@@ -5,19 +5,22 @@ using Ubiq.Messaging;
 
 public class TriggerScript : MonoBehaviour
 {
-    AudioSource audioSource;
+    public AudioSource EpipenSound;
+    public AudioSource ErrorSound;
     Animator epipenAnimator;
     NetworkContext context;
 
     public static TriggerScript instance; 
     public bool hasTriggered = false;
-    public bool isAudioPlaying = false; // Track whether audio is playing
+    public bool isEpipenAudioPlaying = false; // Track whether audio is playing
+    public bool isErrorAudioPlaying = false; // Track whether audio is playing
 
     void Start()
     {
         context = NetworkScene.Register(this);
         epipenAnimator = GameObject.FindGameObjectWithTag("Epipen").GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
+        // EpipenSound = GetComponent<AudioSource>();
+        // ErrorSound = GetComponent<AudioSource>();
     }
 
     void Awake() {
@@ -31,12 +34,16 @@ public class TriggerScript : MonoBehaviour
         if (other.gameObject.tag == "Epipen" && !hasTriggered)
         {
             // Debug.Log("Just hit by an Epipen");
-            audioSource.Play();
+            EpipenSound.Play();
             // epipenAnimator.SetTrigger("Epipen");
             hasTriggered = true;
 
             // Update audio state and send network message
-            isAudioPlaying = true;
+            isEpipenAudioPlaying = true;
+            SendNetworkMessage();
+        } else if (other.gameObject.tag == "OtherMedical"){
+            ErrorSound.Play();
+            isErrorAudioPlaying = true;
             SendNetworkMessage();
         }
     }
@@ -46,38 +53,59 @@ public class TriggerScript : MonoBehaviour
         if (other.gameObject.tag == "Epipen")
         {
             // Debug.Log("Exit Epipen");
-            audioSource.Stop();
+            EpipenSound.Stop();
             // Perform any actions needed when exiting the trigger zone
 
             // Update audio state and send network message
-            isAudioPlaying = false;
+            isEpipenAudioPlaying = false;
             SendNetworkMessage();
-        }
+        } 
+        if (other.gameObject.tag == "OtherMedical")
+        {
+            // Debug.Log("Exit Epipen");
+            ErrorSound.Stop();
+            // Perform any actions needed when exiting the trigger zone
+
+            // Update audio state and send network message
+            isErrorAudioPlaying = false;
+            SendNetworkMessage();
+        } 
     }
 
     void SendNetworkMessage()
     {
         var message = new Message();
-        message.isAudioPlaying = isAudioPlaying;
+        message.isEpipenAudioPlaying = isEpipenAudioPlaying;
+        message.isErrorAudioPlaying = isErrorAudioPlaying;
         context.SendJson(message);
     }
 
     private struct Message
     {
-        public bool isAudioPlaying;
+        public bool isEpipenAudioPlaying;
+        public bool isErrorAudioPlaying;
+        
     }
 
     public void ProcessMessage(ReferenceCountedSceneGraphMessage message)
     {
         var m = message.FromJson<Message>();
         // Update audio state based on the received message
-        if (m.isAudioPlaying)
+        if (m.isEpipenAudioPlaying)
         {
-            audioSource.Play();
+            EpipenSound.Play();
         }
         else
         {
-            audioSource.Stop();
+            EpipenSound.Stop();
+        }
+        if (m.isErrorAudioPlaying)
+        {
+            ErrorSound.Play();
+        }
+        else
+        {
+            ErrorSound.Stop();
         }
     }
 }
