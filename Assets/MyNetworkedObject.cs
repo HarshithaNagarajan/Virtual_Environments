@@ -9,10 +9,6 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class MyNetworkedObject : MonoBehaviour
 {
     NetworkContext context;
-    public bool isOwner;
-
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -36,15 +32,9 @@ public class MyNetworkedObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Only the owner should send updates
-        if(isOwner)
-        {
-           
-            var message = new Message();
-            message.pose = Transforms.ToLocal(transform, context.Scene.transform);
-            context.SendJson(message);
-
-        }
+        var message = new Message();
+        message.pose = Transforms.ToLocal(transform, context.Scene.transform);
+        context.SendJson(message);
     }
 
     private struct Message
